@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -29,9 +30,11 @@ export default function SpacingGrid({movies}) {
       </Typography> */}
       <Grid justify="center" className={classes.container} container spacing={0}>
         {movies.length > 0 && movies.map((movie) => (
-          <Grid className={classes.item} key={movie.id} item xs={"auto"}>
-            <img alt={movie.title} className={classes.img} src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}/>
-          </Grid>
+          <Link key={movie.id} to={`/movies/${movie.id}`}>
+            <Grid className={classes.item} item xs={"auto"}>
+              <img alt={movie.title} className={classes.img} src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}/>
+            </Grid>
+          </Link>
         ))}
       </Grid>
     </>

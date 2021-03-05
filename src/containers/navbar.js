@@ -16,7 +16,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import useStyles from '../assets/styles'
 
-export default function Navbar({open, userLoged, handleDrawerOpen, handleInputChange}) {
+export default function Navbar({open, userLoged, handleDrawerOpen, handleInputChange, logOut}) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   
@@ -28,6 +28,7 @@ export default function Navbar({open, userLoged, handleDrawerOpen, handleInputCh
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+
   };
 
   const menuId = 'primary-search-account-menu';
@@ -41,14 +42,14 @@ export default function Navbar({open, userLoged, handleDrawerOpen, handleInputCh
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Favorites</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+
+      <MenuItem onClick={() => {handleMenuClose(); logOut();}}>Log Out</MenuItem>
     </Menu>
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
 
-  return (
+  return (  
     <div className={classes.grow}>
       <AppBar
         position="fixed"

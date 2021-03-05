@@ -102,6 +102,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  poster: {
+    height: 400,
+    width: 275,
+  },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
